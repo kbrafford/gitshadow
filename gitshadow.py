@@ -4,8 +4,11 @@ import tempfile
 import os
 import sys
 
-REPO = sys.argv[1]
-SHADOW = sys.argv[2]
+REPO_ENV_NAME = sys.argv[1]
+SHADOW_ENV_NAME = sys.argv[2]
+
+REPO = os.getenv(REPO_ENV_NAME)
+SHADOW = os.getenv(SHADOW_ENV_NAME)
 
 CLONE =  "git clone --mirror %s %s/.git"
 RENAME = "git remote rename origin origin-old"
